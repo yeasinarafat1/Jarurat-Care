@@ -9,7 +9,13 @@ const NavBar = () => {
           <p className="text-[#1C1C57] text-xl font-medium">HealthCare</p>
         </div>
         <div className="flex items-center justify-center gap-3">
-          <Button className="bg-primary flex items-center justify-center gap-2">
+          <Button
+            className="bg-primary flex items-center justify-center gap-2"
+            onClick={() => {
+              window.location.href =
+                "https://github.com/yeasinarafat1/Jarurat-Care";
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
