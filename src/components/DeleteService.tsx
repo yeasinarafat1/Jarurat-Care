@@ -1,3 +1,11 @@
+/**
+ * DeleteService component
+ *
+ * A dialog that allows users to delete a service
+ *
+ * @param {{ id: string }} props - the id of the service to delete
+ * @return {JSX.Element} the delete service component
+ */
 import { databases } from "@/appwite/config";
 import {
   AlertDialog,
@@ -16,6 +24,9 @@ import { useQueryClient } from "@tanstack/react-query";
 const DeleteService = ({ id }: { id: string }) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
+  /**
+   * Handles the deletion of the service
+   */
   const deleteService = async () => {
     try {
       await databases.deleteDocument(

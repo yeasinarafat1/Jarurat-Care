@@ -1,6 +1,14 @@
 import { ID } from "appwrite";
 import { databases } from "./config";
 
+/**
+ * Creates a new service
+ *
+ * @param {{ name: string; description: string; price: number }} service
+ * @returns {Promise<boolean | { error: any }>} true if the service is created
+ * successfully, false otherwise. If there is an error, the error object is
+ * returned.
+ */
 export const createService = async ({
   name,
   description,
@@ -30,6 +38,13 @@ export const createService = async ({
     }
   );
 };
+
+/**
+ * Gets all services
+ *
+ * @returns {Promise<Array<{ $id: string; name: string; description: string; price: number }>>} an array
+ * of all services. If there is an error, the error object is returned.
+ */
 export const getAllService = async () => {
   try {
     const response = await databases.listDocuments(

@@ -1,3 +1,6 @@
+/**
+ * Form to add a new service
+ */
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -9,12 +12,20 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 
+/**
+ * The schema for the form
+ */
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   description: z.string().min(2).max(50),
   price: z.coerce.number().gte(1).lte(1000),
 });
 
+/**
+ * The component
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} setOpen
+ * @return {React.ReactElement} The component
+ */
 const AddServiceForm = ({
   setOpen,
 }: {

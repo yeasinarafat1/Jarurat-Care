@@ -1,3 +1,15 @@
+/**
+ * EditServiceForm component
+ *
+ * A form to edit a service
+ *
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} setOpen - a function to open or close the dialog
+ * @param {string} id - the id of the service to edit
+ * @param {string} name - the name of the service to edit
+ * @param {string} description - the description of the service to edit
+ * @param {number} price - the price of the service to edit
+ * @returns {JSX.Element} the form component
+ */
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -9,6 +21,9 @@ import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { databases } from "@/appwite/config";
 
+/**
+ * The schema for the form
+ */
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   description: z.string().min(2).max(50),
@@ -40,6 +55,10 @@ const EditServiceForm = ({
   });
 
   // 2. Define a submit handler.
+  /**
+   * Handles the form submission
+   * @param {z.infer<typeof formSchema>} values - the form values
+   */
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const { name, description, price } = values;
     try {
@@ -91,3 +110,4 @@ const EditServiceForm = ({
 };
 
 export default EditServiceForm;
+

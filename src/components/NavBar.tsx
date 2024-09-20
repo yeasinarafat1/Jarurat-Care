@@ -1,5 +1,15 @@
+/**
+ * This component renders a navigation bar with a logo and a button
+ * that takes the user to the GitHub repository of the project.
+ *
+ * @returns {JSX.Element} The navigation bar component.
+ */
 import logo from "../assets/logo.svg";
 import { Button } from "./ui/button";
+
+/**
+ * The navigation bar component.
+ */
 const NavBar = () => {
   return (
     <div className="w-full bg-white">
